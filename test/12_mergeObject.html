@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script src="../dist/cky_utils.min.js"></script>
+  <script>
+    console.log(ckyUtils.mergeObject({
+      a: {
+        x: 0
+      },
+      b: {
+        y: 1
+      }
+    }, {
+      b: {
+        z: 10
+      }
+    }, {
+      c: 'c'
+    }, {
+      d: 'd'
+    }, {
+      d: 'e'
+    }, {
+      f: [2, 4]
+    }, {
+      f: 8
+    }))
+  </script>
+</body>
+
+</html>

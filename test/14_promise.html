@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>ckyUtils.Promise</title>
+</head>
+
+<body>
+  <script src="../dist/cky_utils.min.js"></script>
+  <!-- <script src="./promise_class版.js"></script> -->
+  <script>
+    // const p1 = new ckyUtils.Promise((resolve, reject) => {
+    //   // console.log('executor')
+    //   setTimeout(() => {
+    //     resolve(1)
+    //     // reject(3)
+    //   }, 1000);
+    //   // resolve(2)
+    //   // reject(121)
+    // })
+    // const p2 = ckyUtils.Promise.resolve(8)
+    // const p2 = ckyUtils.Promise.resolve(new ckyUtils.Promise((resolve, reject) => {
+    //   resolve(10)
+    //   // reject(11)
+    // }))
+    // const p3 = ckyUtils.Promise.resolve(9)
+    // const p3 = ckyUtils.Promise.reject(9)
+
+    // ckyUtils.Promise.all([p1, p2, p3]).then(values => {
+    //     console.log('ckyUtils.Promise.all() resolved', values)
+    //   },
+    //   reason => {
+    //     console.log('ckyUtils.Promise.all() rejected', reason)
+    //   }
+    // )
+
+    // p3.then(value => {
+    //   console.log('ckyUtils.Promise.resolve()', value)
+    // }, reason => {
+    //   console.log('ckyUtils.Promise.reject()', reason)
+    // })
+
+    // ckyUtils.Promise.race([p1, p2, p3]).then(value => {
+    //     console.log('ckyUtils.Promise.race() resolved', value)
+    //   },
+    //   reason => {
+    //     console.log('ckyUtils.Promise.race() rejected', reason)
+    //   }
+    // )
+
+    // p2.then(value => {
+    //   console.log('ckyUtils.Promise.resolve()', value)
+    // }, reason => {
+    //   console.log('ckyUtils.Promise.reject()', reason)
+    // })
+    const p1 = new ckyUtils.Promise((resolve, reject) => {
+      // console.log('executor')
+      setTimeout(() => {
+        // resolve(1)
+        reject(3)
+      }, 1000);
+      // resolve(2)
+      // reject(121)
+    })
+
+    // const p1 = ckyUtils.Promise.resolveDelay(122, 1000)
+    // const p1 = ckyUtils.Promise.rejectDelay(122, 2000)
+
+    p1.then(value => {
+        console.log('onResolved()', value)
+      },
+      reason => {
+        console.log('onRejected()', reason)
+        return new ckyUtils.Promise((resolve, reject) => {
+          reject(4)
+        })
+        // return 5
+        // throw 6
+      }
+    ).then(value => {
+      console.log('onResolved()2', value)
+      throw value
+    }, reason => {
+      console.log('onRejected()2', reason)
+      throw 7
+    }).catch(error => {
+      console.log('onRejected()3', error)
+    }).then(value => {
+        console.log('onResolved()last', value)
+      },
+      reason => {
+        console.log('onRejected()last', reason)
+      })
+  </script>
+</body>
+
+</html>

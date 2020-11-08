@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    /**
+     * 节流
+     */
+    _throttle = function (callback, delay) {
+      let pro = 0
+      return function (e) {
+        const cur = Date.now()
+        if (cur - pre > delay) {
+          callback.call(this, e)
+          pre = cur
+        }
+      }
+    }
+
+    /**
+     * 防抖
+     */
+
+    _debounce = function (callback, delay) {
+      return function (e) {
+        if (callback.hasOwnProperty('timeId')) {
+          clearTimeout(callback.timeId)
+        }
+        callback.timeId = setTimeout(_ => {
+          callback.call(this, e)
+          // 事件调用后删除
+          delete callback.timeId
+        }, delay)
+      }
+    }
+  </script>
+</body>
+
+</html>

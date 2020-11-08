@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script src="../dist/cky_utils.min.js"></script>
+  <script>
+    function Person(name, age) {
+      this.name = name
+      this.age = age
+    }
+    const p = ckyUtils.createInstance(Person, 'tom', 20)
+    // console.log(p instanceof Person)
+    console.log(ckyUtils.myInstanceOf(p, Person))
+  </script>
+</body>
+
+</html>

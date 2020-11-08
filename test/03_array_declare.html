@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 实现map
+    // Array.prototype.map = function (callback) {
+    //   let array = []
+    //   for (let index = 0; index < this.length; index++) {
+    //     const element = this[index];
+    //     const result = callback(element, index)
+    //     array.push(result)
+    //   }
+    //   return array
+    // }
+
+    // 实现filter
+    // Array.prototype.filter = function (callback) {
+    //   let array = []
+    //   for (let index = 0; index < this.length; index++) {
+    //     const element = this[index];
+    //     const result = callback(element, index)
+    //     if (result) {
+    //       array.push(element)
+    //     }
+    //   }
+    //   return array
+    // }
+
+    // 实现indexOf
+    // Array.prototype.indexOf = function (ele) {
+    //   for (let index = 0; index < this.length; index++) {
+    //     const element = this[index];
+    //     if (ele === element) {
+    //       return index
+    //     }
+    //   }
+    //   return -1
+    // }
+
+    // 实现lastIndexOf
+    // Array.prototype.lastIndexOf = function (ele) {
+    //   for (let index = this.length - 1; index >= 0; index--) {
+    //     const element = this[index];
+    //     if (element === ele) {
+    //       return index
+    //     }
+    //   }
+    //   return -1
+    // }
+
+    // 实现reduce
+    // Array.prototype.reduce = function (callback, initValue) {
+
+    //   let total = initValue
+    //   // 遍历当前数组的每一个元素，调用callback得到一个累加的结果数据
+    //   for (let index = 0; index < this.length; index++) {
+    //     const element = this[index]
+    //     total = callback(total, element, index)
+    //   }
+    //   return total
+    // }
+
+    // 实现find
+    // Array.prototype.find = function (callback) {
+    //   for (let index = 0; index < this.length; index++) {
+    //     const element = this[index];
+    //     const result = callback(element, index)
+    //     if (result) {
+    //       return element
+    //     }
+    //   }
+    //   return undefined
+    // }
+
+    // 实现findIndex
+    // Array.prototype.findIndex = function (callback) {
+    //   for (let index = 0; index < this.length; index++) {
+    //     const element = this[index];
+    //     const result = callback(element, index)
+    //     if (result) {
+    //       return index
+    //     }
+    //   }
+    //   return -1
+    // }
+
+    // 实现every
+    // Array.prototype.every = function (callback) {
+
+    //   for (let index = 0; index < this.length; index++) {
+    //     const element = this[index];
+    //     const result = callback(element, index)
+    //     if (!result) {
+    //       return false
+    //     }
+    //   }
+    //   return true
+    // }
+
+    // 实现some
+    // Array.prototype.some = function (callback) {
+    //   for (let index = 0; index < this.length; index++) {
+    //     const element = this[index];
+    //     const result = callback(element, index)
+    //     if (result) return true
+    //   }
+    //   return false
+    // }
+  </script>
+  <!-- <script src="../dist/cky_utils.js"></script> -->
+  <script src="../dist/cky_utils.min.js"></script>
+  <script>
+    /**
+     * 需求：
+     * 1. 产生一个每个元素都比原来大10的新数组
+     * 2. 得到所有奇数的和
+     * 3. 得到值大于8且下标是偶数位的元素组成的数组
+     * 4. 找出一个值大于8且下标是偶数位的元素
+     * 5. 找出一个值大于8且下标是偶数位的元素的下标
+     * 6. 判断下标为偶数的元素是否都为奇数
+     * 7. 判断是否有下标为偶数的元素值为奇数
+     */
+    const arr = [1, 5, 7, 3, 9, 4, 8]
+    console.log(ckyUtils.map(arr, item => item + 10))
+    console.log(ckyUtils.filter(arr, item => item > 5))
+    // console.log(arr.indexOf(5), arr.indexOf(10))
+    // console.log(arr.lastIndexOf(5), arr.lastIndexOf(10))
+    // console.log(arr.reduce((pre, cur) => pre + (cur % 2 === 0 ? cur : 0), 0))
+    // console.log(arr.find(item => item > 6))
+    // console.log(arr.findIndex(item => item > 7))
+    // console.log(arr.every(item => item > 8))
+    // console.log(arr.some(item => item > 8))
+  </script>
+</body>
+
+</html>

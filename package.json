@@ -1,0 +1,36 @@
+{
+  "name": "cky_utils_lib",
+  "version": "1.1.2",
+  "description": "前端工具库集合, 工作业务制作, 提高编码能力, 业务开发效率",
+  "main": "dist/cky_utils.js",
+  "scripts": {
+    "build": "webpack --watch",
+    "dev": "webpack-dev-server"
+  },
+  "keywords": [
+    "cky",
+    "array",
+    "function",
+    "string",
+    "call",
+    "apply",
+    "bind",
+    "debounce",
+    "throttle",
+    "merge",
+    "difference",
+    "object",
+    "new",
+    "instanceof",
+    "promise",
+    "继承",
+    "lodash"
+  ],
+  "author": "一名前端开发者",
+  "license": "MIT",
+  "devDependencies": {
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.11.0"
+  }
+}

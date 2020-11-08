@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    Function.prototype.myCall = function (obj, ...args) {
+      if (obj == null) {
+        obj = window
+      }
+      obj.tempFun = this
+      const result = obj.tempFun(...args)
+      delete obj.tempFun
+      return result
+    }
+
+    function test(a, b) {
+      console.log(a, b)
+      console.log(this, arguments.length)
+    }
+    const obj = {
+      x: 666
+    }
+
+    test.myCall(obj, 1, 2)
+
+    Function.prototype.myBind = function (obj, ...args) {
+      const _this = this
+      return function (...args2) {
+        return _this.call(obj, ...args, ...args2)
+      }
+    }
+
+    test.myBind(obj, 3, 4, 5)(6, 7)
+  </script>
+</body>
+
+</html>
